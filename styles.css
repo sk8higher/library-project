@@ -15,6 +15,7 @@
 }
 
 :root {
+  --link-color: #7B61FF;
   --primary-red-color: #ED584F;
   --primary-green-color: #29BB89;
   --primary-yellow-color: #FFD56B;
@@ -27,6 +28,8 @@
   --grey-gradient: linear-gradient(0deg, #f5f5f5, #f5f5f5),
     linear-gradient(0deg, #e5e5e5, #e5e5e5);
   --header-shadow: 0px 8px 10px 0px rgba(34, 60, 80, 0.2);
+  --card-shadow: 0px 5px 4px 0px #2C2B2A1A;
+  
 }
 
 .success {
@@ -98,7 +101,55 @@ body {
 
 .main-content__books-grid {
   display: grid;
-  grid-template-columns: repeat(autofill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.books-grid__book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--primary-grey-light);
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.books-grid__buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.card-buttons {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid var(--primary-grey-dark);
+}
+
+.books-grid__book-is-read {
+  background-color: var(--primary-green-color);
+  color: white;
+  
+}
+
+.books-grid__book-remove {
+  background-color: var(--primary-grey-light);
+}
+
+.books-grid__book-remove:hover {
+  background-color: var(--primary-red-color);
+  color: white;
+}
+
+.card-text {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .add-book-modal {
@@ -185,7 +236,7 @@ input:hover, input:active {
   padding: 20px;
 }
 .a, a:visited {
-  color: var(--primary-yellow-color); 
+  color: var(--link-color); 
 }
 
 .add-book-modal__input-container {
@@ -198,3 +249,4 @@ input:hover, input:active {
 input[type="text"], input[type="number"] {
   width: 120%;
 }
+
