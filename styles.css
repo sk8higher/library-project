@@ -2,10 +2,12 @@
 
 :root {
   --primary-grey-dark: #4f4f4f;
-  --bg-header-logo-color: #f5f5f5;
-  --header-gradient: linear-gradient(0deg, #f5f5f5, #f5f5f5),
-    linear-gradient(0deg, #e5e5e5, #e5e5e5);
+  --primary-white-color: #f5f5f5;
+  --primary-grey-light: #e5e5e5;
   --primary-grey-lighter: #d1d1d1;
+  --grey-gradient: linear-gradient(0deg, #f5f5f5, #f5f5f5),
+    linear-gradient(0deg, #e5e5e5, #e5e5e5);
+  --header-shadow: 0px 8px 10px 0px rgba(34, 60, 80, 0.2);
 }
 
 body {
@@ -20,13 +22,42 @@ body {
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid var(--primary-grey-dark);
-  background: var(--header-gradient);
+  background-color: var(--primary-grey-dark);
+  box-shadow: var(--header-shadow);
 }
 
 .header__logo {
-  background-color: var(--primary-grey-lighter);
-  color: var(--primary-grey-dark);
-  border: 2px solid var(--primary-grey-dark);
+  background-color: var(--primary-grey-dark);
+  color: white;
+  border: 5px solid white;
   border-radius: 100px;
   padding: 12px 60px;
+}
+
+.main-content {
+  height: 100vh;
+}
+
+.main-content__container__add-book-button {
+  display: flex;
+  justify-content: center;
+}
+
+.main-content__add-book-button {
+  font-size: 14px;
+  margin: 20px 0 20px;
+  width: 150px;
+  height: 50px;
+  color: var(--primary-white-color);
+  background-color: var(--primary-grey-dark);
+  border: none;
+  border-radius: 8px;
+}
+
+.fa-plus {
+  padding-right: 8px;
+}
+
+.main-content__add-book-button:hover {
+  background-color: black;
 }
