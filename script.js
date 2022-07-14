@@ -12,6 +12,28 @@ const authorInput = document.querySelector('#author-input');
 const pagesInput = document.querySelector('#pages-input');
 const isReadInput = document.querySelector('#is-read-input');
 
+let myLibrary = [];
+
+/**
+ * TODO: refactor to a class
+ * A constructor for Book object.
+ * @function Book
+ * @param {string} title
+ * @param {string} author
+ * @param {number} pages
+ * @param {boolean} isRead
+ */
+function Book(title, author, pages, isRead) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.isRead = isRead;
+}
+
+function addBookToLibrary(book) {
+  myLibrary.push(book);
+}
+
 const isBlank = (value) => (value !== '' ? false : true);
 
 function showModal() {
@@ -87,7 +109,7 @@ modalForm.addEventListener('submit', function (e) {
     isTitleInputValid && isAuthorInputValid && isPagesInputValid;
 
   if (isFormValid) {
-    modalForm.submit();
+    // modalForm.submit();
     closeModal();
   }
 });
