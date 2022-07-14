@@ -20,14 +20,19 @@
       </div>
 
       <div class="main-content__books-grid" id="books-grid">
-
+        <div class="books-grid__book">
+          <p class="books-grid__book-title">title</p>
+          <p class="books-grid__book-author">author</p>
+          <p class="books-grid__book-pages">123</p>
+          <button class="books-grid__book-is-read">Read Demo</button>
+        </div>
       </div>
     </div>
 
     
     <div class="add-book-modal hidden">
       <div class="add-book-modal__contents">
-        <form action="submit" class="add-book-modal__form">
+        <form class="add-book-modal__form" method="post">
           <p class="add-book-modal__header">Add a book</p>
           <div class="add-book-modal__input-container">
             <input id="title-input" type="text" placeholder="Title">
@@ -45,7 +50,7 @@
             <label for="is-read">Have you read this book?</label>
             <input id="is-read-input" type="checkbox">
           </div>
-          <button class="add-book-modal__submit-btn">Submit</button>
+          <button type="submit" class="add-book-modal__submit-btn">Submit</button>
         </form>
       </div>
       <div class="add-book-modal__close-button">
