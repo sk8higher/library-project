@@ -24,6 +24,12 @@ function closeModal() {
   modalOverlay.classList.toggle('hidden');
 }
 
+/**
+ * Validates the form inputand returns if it is valid.
+ * @function checkTextInput
+ * @param {Element} element The input that we want to validate.
+ * @returns {boolean} If the input field valid.
+ */
 function checkTextInput(element) {
   let isValid = false;
   const textInputValue = element.value.trim();
@@ -38,6 +44,12 @@ function checkTextInput(element) {
   return isValid;
 }
 
+/**
+ * Shows error in <small> element under input field and adds error styles to the field.
+ * @function showError
+ * @param {Element} input An input element that we want to manipulate.
+ * @param {string} msg The text value to show under input field.
+ */
 function showError(input, msg) {
   const inputElem = input.parentElement;
 
@@ -48,6 +60,10 @@ function showError(input, msg) {
   error.textContent = msg;
 }
 
+/**
+ * Adds success styles to the input and deletes error text in <small> element.
+ * @param {Element} input An input element that we want to manipulate.
+ */
 function showSuccess(input) {
   const inputElem = input.parentElement;
 
@@ -66,15 +82,12 @@ modalForm.addEventListener('submit', function (e) {
   let isTitleInputValid = checkTextInput(titleInput);
   let isAuthorInputValid = checkTextInput(authorInput);
   let isPagesInputValid = checkTextInput(pagesInput);
-  let isReadInputValid = checkTextInput(isReadInput);
 
   let isFormValid =
-    isTitleInputValid &&
-    isAuthorInputValid &&
-    isPagesInputValid &&
-    isReadInputValid;
+    isTitleInputValid && isAuthorInputValid && isPagesInputValid;
 
   if (isFormValid) {
-    submit();
+    modalForm.submit();
+    closeModal();
   }
 });
