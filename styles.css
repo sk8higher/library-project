@@ -3,7 +3,7 @@
 @media only screen and (max-width: 600px) {
   .add-book-modal {
     width: 50%;
-    height: 70%;
+    height: 60%;
   }
 }
 
@@ -193,4 +193,8 @@ input:hover, input:active {
   flex-direction: column;
   gap: 4px;
   align-items: center;
+}
+
+input[type="text"], input[type="number"] {
+  width: 120%;
 }
