@@ -34,6 +34,45 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
+function createBookCards(book) {
+  const booksGridBook = document.createElement('div');
+  booksGridBook.classList.add('books-grid__book');
+
+  const titleCardElement = document.createElement('p');
+  titleCardElement.classList.add('books-grid__book-title', 'card-text');
+
+  const authorCardElement = document.createElement('p');
+  authorCardElement.classList.add('books-grid__book-author', 'card-text');
+
+  const pagesCardElement = document.createElement('p');
+  pagesCardElement.classList.add('books-grid__book-pages', 'card-text');
+
+  const buttonsContainerCardElement = document.createElement('div');
+  buttonsContainerCardElement.classList.add('books-grid__buttons-container');
+
+  const isReadCardButton = document.createElement('button');
+  isReadCardButton.classList.add('books-grid__book-is-read', 'card-buttons');
+
+  const removeBookCardButton = document.createElement('button');
+  removeBookCardButton.classList.add('books-grid__book-remove', 'card-buttons');
+
+  booksGrid.insertAdjacentHTML('afterbegin', booksGridBook);
+
+  booksGridBook.insertAdjacentHTML('afterbegin', titleCardElement);
+  booksGridBook.insertAdjacentHTML('afterbegin', authorCardElement);
+  booksGridBook.insertAdjacentHTML('afterbegin', pagesCardElement);
+  booksGridBook.insertAdjacentHTML('afterbegin', buttonsContainerCardElement);
+
+  buttonsContainerCardElement.insertAdjacentHTML(
+    'afterbegin',
+    isReadCardButton
+  );
+  buttonsContainerCardElement.insertAdjacentElement(
+    'beforeend',
+    removeBookCardButton
+  );
+}
+
 const isBlank = (value) => (value !== '' ? false : true);
 
 function showModal() {
@@ -47,7 +86,7 @@ function closeModal() {
 }
 
 /**
- * Validates the form inputand returns if it is valid.
+ * Validates the form input and returns if it is valid.
  * @function checkTextInput
  * @param {Element} element The input that we want to validate.
  * @returns {boolean} If the input field valid.
@@ -110,6 +149,12 @@ modalForm.addEventListener('submit', function (e) {
 
   if (isFormValid) {
     // modalForm.submit();
+    let titleText = titleInput.value.trim();
+    let authorText = authorInput.value.trim();
+    let pagesNumber = pagesInput.value.trim();
+    let isReadValue = isReadInput.checked;
+    let addingBook = new Book(titleText, authorText, pagesNumber, isReadValue);
+    console.log(addingBook);
     closeModal();
   }
 });
