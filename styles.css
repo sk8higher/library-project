@@ -61,3 +61,8 @@ body {
 .main-content__add-book-button:hover {
   background-color: black;
 }
+
+.main-content__books-grid {
+  display: grid;
+  grid-template-columns: repeat(autofill, minmax(100px, 1fr));
+}
