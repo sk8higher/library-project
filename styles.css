@@ -10,7 +10,7 @@
 @media only screen and (min-width: 992px) {
   .add-book-modal {
     width: 25%;
-    height: 50%;
+    height: 60%;
   }
 }
 
@@ -84,6 +84,7 @@ body {
   background-color: var(--primary-grey-dark);
   border: none;
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .fa-plus {
