@@ -30,40 +30,48 @@ function Book(title, author, pages, isRead) {
   this.isRead = isRead;
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
+function addBookToLibrary(Book) {
+  myLibrary.push(Book);
 }
 
-function createBookCards(book) {
+function createBookCards(Book) {
   const booksGridBook = document.createElement('div');
   booksGridBook.classList.add('books-grid__book');
 
   const titleCardElement = document.createElement('p');
   titleCardElement.classList.add('books-grid__book-title', 'card-text');
+  titleCardElement.innerHTML = `"${Book.title}"`;
 
   const authorCardElement = document.createElement('p');
   authorCardElement.classList.add('books-grid__book-author', 'card-text');
+  authorCardElement.innerHTML = `${Book.author}`;
 
   const pagesCardElement = document.createElement('p');
   pagesCardElement.classList.add('books-grid__book-pages', 'card-text');
+  pagesCardElement.innerHTML = `${Book.pages} pages`;
 
   const buttonsContainerCardElement = document.createElement('div');
   buttonsContainerCardElement.classList.add('books-grid__buttons-container');
 
   const isReadCardButton = document.createElement('button');
-  isReadCardButton.classList.add('books-grid__book-is-read', 'card-buttons');
+  isReadCardButton.classList.add(
+    Book.isRead ? 'books-grid__book-is-read' : 'is-not-read',
+    'card-buttons'
+  );
+  isReadCardButton.innerHTML = Book.isRead ? 'Remove from read' : 'Add to read';
 
   const removeBookCardButton = document.createElement('button');
   removeBookCardButton.classList.add('books-grid__book-remove', 'card-buttons');
+  removeBookCardButton.innerHTML = 'Remove book from library';
 
-  booksGrid.insertAdjacentHTML('afterbegin', booksGridBook);
+  booksGrid.insertAdjacentElement('beforeend', booksGridBook);
 
-  booksGridBook.insertAdjacentHTML('afterbegin', titleCardElement);
-  booksGridBook.insertAdjacentHTML('afterbegin', authorCardElement);
-  booksGridBook.insertAdjacentHTML('afterbegin', pagesCardElement);
-  booksGridBook.insertAdjacentHTML('afterbegin', buttonsContainerCardElement);
+  booksGridBook.insertAdjacentElement('beforeend', titleCardElement);
+  booksGridBook.insertAdjacentElement('beforeend', authorCardElement);
+  booksGridBook.insertAdjacentElement('beforeend', pagesCardElement);
+  booksGridBook.insertAdjacentElement('beforeend', buttonsContainerCardElement);
 
-  buttonsContainerCardElement.insertAdjacentHTML(
+  buttonsContainerCardElement.insertAdjacentElement(
     'afterbegin',
     isReadCardButton
   );
@@ -148,13 +156,15 @@ modalForm.addEventListener('submit', function (e) {
     isTitleInputValid && isAuthorInputValid && isPagesInputValid;
 
   if (isFormValid) {
-    // modalForm.submit();
     let titleText = titleInput.value.trim();
     let authorText = authorInput.value.trim();
     let pagesNumber = pagesInput.value.trim();
     let isReadValue = isReadInput.checked;
     let addingBook = new Book(titleText, authorText, pagesNumber, isReadValue);
-    console.log(addingBook);
+    addBookToLibrary(addingBook);
+
+    createBookCards(addingBook);
+
     closeModal();
   }
 });
