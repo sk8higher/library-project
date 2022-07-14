@@ -27,17 +27,26 @@
     
     <div class="add-book-modal hidden">
       <div class="add-book-modal__contents">
-        <p class="add-book-modal__header">Add a book</p>
         <form action="submit" class="add-book-modal__form">
-          <input type="text" placeholder="Title">
-          <input type="text" placeholder="Author">
-          <input type="number" placeholder="Pages">
+          <p class="add-book-modal__header">Add a book</p>
+          <div class="add-book-modal__input-container">
+            <input id="title-input" type="text" placeholder="Title">
+            <small></small>
+          </div>
+          <div class="add-book-modal__input-container">
+            <input id="author-input" type="text" placeholder="Author">
+            <small></small>
+          </div>
+          <div class="add-book-modal__input-container">
+            <input id="pages-input" type="number" placeholder="Pages">
+            <small></small>
+          </div>
           <div class="add-book-modal__contents__checkbox-container">
             <label for="is-read">Have you read this book?</label>
-            <input type="checkbox">
+            <input id="is-read-input" type="checkbox">
           </div>
+          <button class="add-book-modal__submit-btn">Submit</button>
         </form>
-        <button class="add-book-modal__submit-btn">Submit</button>
       </div>
       <div class="add-book-modal__close-button">
         <span><i class="fa-solid fa-xmark fa-lg"></i></span>
