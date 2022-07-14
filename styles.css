@@ -1,6 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 
+@media only screen and (max-width: 600px) {
+  .add-book-modal {
+    width: 50%;
+    height: 60%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .add-book-modal {
+    width: 25%;
+    height: 50%;
+  }
+}
+
 :root {
+  --modal-border-color: #dee2e6;
+  --placeholder-color: background: #ACACAC;
   --primary-grey-dark: #4f4f4f;
   --primary-white-color: #f5f5f5;
   --primary-grey-light: #e5e5e5;
@@ -79,9 +95,12 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 40%;
-  height: 50%;
-  background-color: var(--primary-white-color);
+  /* width: 25%; */
+  background-color: white;
+  box-shadow: 0px 20px 20px 0px #00000014;
+  border: 2px solid var(--modal-border-color);
+  border-radius: 8px;
+  padding: 20px 50px;
 }
 
 .add-book-modal__contents {
@@ -92,7 +111,30 @@ body {
   height: 100%;
 }
 
+.add-book-modal__header {
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .add-book-modal__form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.add-book-modal__contents__checkbox-container {
+  display: flex;
+  gap: 5px;
+}
+
+input {
+  border: 1px solid #d1d1d1;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--placeholder-color)
+}
+
+input:hover, input:active {
+  border-color: var(--primary-grey-dark);
 }
