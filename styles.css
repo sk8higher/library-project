@@ -10,6 +10,10 @@
   --header-shadow: 0px 8px 10px 0px rgba(34, 60, 80, 0.2);
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -43,7 +47,8 @@ body {
   justify-content: center;
 }
 
-.main-content__add-book-button {
+.main-content__add-book-button,
+.add-book-modal__submit-btn {
   font-size: 14px;
   margin: 20px 0 20px;
   width: 150px;
@@ -58,11 +63,36 @@ body {
   padding-right: 8px;
 }
 
-.main-content__add-book-button:hover {
+.main-content__add-book-button:hover,
+.add-book-modal__submit-btn:hover {
   background-color: black;
 }
 
 .main-content__books-grid {
   display: grid;
   grid-template-columns: repeat(autofill, minmax(100px, 1fr));
+}
+
+.add-book-modal {
+  position: fixed;
+  /* Centering modal */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 50%;
+  background-color: var(--primary-white-color);
+}
+
+.add-book-modal__contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.add-book-modal__form {
+  display: flex;
+  flex-direction: column;
 }
