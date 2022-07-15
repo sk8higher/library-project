@@ -12,7 +12,19 @@ const authorInput = document.querySelector('#author-input');
 const pagesInput = document.querySelector('#pages-input');
 const isReadInput = document.querySelector('#is-read-input');
 
+const btnRemoveFromLibrary = document.querySelectorAll(
+  '.books-grid__book-remove'
+);
+
+const bookCardElements = document.querySelectorAll('.books-grid__book');
+
 let myLibrary = [];
+
+btnRemoveFromLibrary.forEach((element) => {
+  element.addEventListener('click', function (e) {
+    element.parentNode.parentNode.removeChild(element.parentNode.parentNode);
+  });
+});
 
 /**
  * TODO: refactor to a class
@@ -34,6 +46,10 @@ function addBookToLibrary(Book) {
   myLibrary.push(Book);
 }
 
+/**
+ * @function Creates a book card in main content body.
+ * @param {Book} Book
+ */
 function createBookCards(Book) {
   const booksGridBook = document.createElement('div');
   booksGridBook.classList.add('books-grid__book');
@@ -63,6 +79,7 @@ function createBookCards(Book) {
   const removeBookCardButton = document.createElement('button');
   removeBookCardButton.classList.add('books-grid__book-remove', 'card-buttons');
   removeBookCardButton.innerHTML = 'Remove book from library';
+  // removeBookCardButton.onclick = removeBookCard(this);
 
   booksGrid.insertAdjacentElement('beforeend', booksGridBook);
 
@@ -143,6 +160,16 @@ function showSuccess(input) {
   error.textContent = '';
 }
 
+function clearFields() {
+  titleInput.classList.remove('success');
+  authorInput.classList.remove('success');
+  pagesInput.classList.remove('success');
+
+  titleInput.value = '';
+  authorInput.value = '';
+  pagesInput.value = '';
+}
+
 btnAddBook.addEventListener('click', showModal);
 modalOverlay.addEventListener('click', closeModal);
 btnModalClose.addEventListener('click', closeModal);
@@ -164,7 +191,7 @@ modalForm.addEventListener('submit', function (e) {
     addBookToLibrary(addingBook);
 
     createBookCards(addingBook);
-
+    clearFields();
     closeModal();
   }
 });
