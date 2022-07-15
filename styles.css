@@ -100,9 +100,12 @@ body {
 }
 
 .main-content__books-grid {
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(400px, 1fr));
   gap: 30px;
+  margin-bottom: 30px;
 }
 
 .books-grid__book {
@@ -114,12 +117,13 @@ body {
   border: 1px solid var(--primary-grey-light);
   border-radius: 8px;
   padding: 40px;
+  margin: 0 20px;
 }
 
 .books-grid__buttons-container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 20px;
   width: 100%;
 }
 
