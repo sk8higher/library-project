@@ -12,19 +12,13 @@ const authorInput = document.querySelector('#author-input');
 const pagesInput = document.querySelector('#pages-input');
 const isReadInput = document.querySelector('#is-read-input');
 
-const btnRemoveFromLibrary = document.querySelectorAll(
+let btnRemoveFromLibrary = document.querySelectorAll(
   '.books-grid__book-remove'
 );
 
 const bookCardElements = document.querySelectorAll('.books-grid__book');
 
 let myLibrary = [];
-
-btnRemoveFromLibrary.forEach((element) => {
-  element.addEventListener('click', function (e) {
-    element.parentNode.parentNode.removeChild(element.parentNode.parentNode);
-  });
-});
 
 /**
  * TODO: refactor to a class
@@ -51,8 +45,11 @@ function addBookToLibrary(Book) {
  * @param {Book} Book
  */
 function createBookCards(Book) {
+  addBookToLibrary(Book);
+
   const booksGridBook = document.createElement('div');
   booksGridBook.classList.add('books-grid__book');
+  booksGridBook.dataset.bookNumber = myLibrary.length - 1;
 
   const titleCardElement = document.createElement('p');
   titleCardElement.classList.add('books-grid__book-title', 'card-text');
@@ -79,7 +76,6 @@ function createBookCards(Book) {
   const removeBookCardButton = document.createElement('button');
   removeBookCardButton.classList.add('books-grid__book-remove', 'card-buttons');
   removeBookCardButton.innerHTML = 'Remove book from library';
-  // removeBookCardButton.onclick = removeBookCard(this);
 
   booksGrid.insertAdjacentElement('beforeend', booksGridBook);
 
@@ -96,6 +92,15 @@ function createBookCards(Book) {
     'beforeend',
     removeBookCardButton
   );
+
+  btnRemoveFromLibrary = document.querySelectorAll('.books-grid__book-remove');
+}
+
+function removeBookCard(bookNumber) {
+  let childElement = document.querySelector(
+    `[data-book-number="${bookNumber}"]`
+  );
+  childElement.remove();
 }
 
 const isBlank = (value) => (value !== '' ? false : true);
@@ -188,10 +193,18 @@ modalForm.addEventListener('submit', function (e) {
     let pagesNumber = pagesInput.value.trim();
     let isReadValue = isReadInput.checked;
     let addingBook = new Book(titleText, authorText, pagesNumber, isReadValue);
-    addBookToLibrary(addingBook);
 
     createBookCards(addingBook);
     clearFields();
     closeModal();
+  }
+});
+
+// Event bubbling
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('books-grid__book-remove')) {
+    removeBookCard(
+      e.target.parentNode.parentNode.getAttribute('data-book-number')
+    );
   }
 });
