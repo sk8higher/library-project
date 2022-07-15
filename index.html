@@ -4,65 +4,54 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
-    <script defer src="https://kit.fontawesome.com/d620e9a427.js" crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://kit.fontawesome.com/d620e9a427.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Library</title>
   </head>
   <body>
     <div class="header">
       <h1 class="header__logo">Library Project</h1>
     </div>
-    
+
     <div class="main-content">
       <div class="main-content__container__add-book-button">
-        <button class="main-content__add-book-button" id="add-book-button"><i class="fa-solid fa-plus"></i> Add a book</button>
+        <button class="main-content__add-book-button" id="add-book-button">
+          <i class="fa-solid fa-plus"></i>
+          Add a book
+        </button>
       </div>
 
-      <div class="main-content__books-grid" id="books-grid">
-        <div class="books-grid__book">
-          <p class="books-grid__book-title card-text">title</p>
-          <p class="books-grid__book-author card-text">author</p>
-          <p class="books-grid__book-pages card-text">123 pages</p>
-          <div class="books-grid__buttons-container">
-            <button class="books-grid__book-is-read card-buttons">Read Demo</button>
-            <button class="books-grid__book-remove card-buttons">Remove book</button>
-          </div>
-        </div>        
-        <div class="books-grid__book">
-          <p class="books-grid__book-title card-text">title</p>
-          <p class="books-grid__book-author card-text">author</p>
-          <p class="books-grid__book-pages card-text">123 pages</p>
-          <div class="books-grid__buttons-container">
-            <button class="books-grid__book-is-read card-buttons">Read Demo</button>
-            <button class="books-grid__book-remove card-buttons">Remove book</button>
-          </div>
-        </div>
-      </div>
+      <div class="main-content__books-grid" id="books-grid"></div>
     </div>
 
-    
     <div class="add-book-modal hidden">
       <div class="add-book-modal__contents">
         <form class="add-book-modal__form" method="post">
           <p class="add-book-modal__header">Add a book</p>
           <div class="add-book-modal__input-container">
-            <input id="title-input" type="text" placeholder="Title">
+            <input id="title-input" type="text" placeholder="Title" />
             <small></small>
           </div>
           <div class="add-book-modal__input-container">
-            <input id="author-input" type="text" placeholder="Author">
+            <input id="author-input" type="text" placeholder="Author" />
             <small></small>
           </div>
           <div class="add-book-modal__input-container">
-            <input id="pages-input" type="number" placeholder="Pages">
+            <input id="pages-input" type="number" placeholder="Pages" />
             <small></small>
           </div>
           <div class="add-book-modal__contents__checkbox-container">
             <label for="is-read">Have you read this book?</label>
-            <input id="is-read-input" type="checkbox">
+            <input id="is-read-input" type="checkbox" />
           </div>
-          <button type="submit" class="add-book-modal__submit-btn">Submit</button>
+          <button type="submit" class="add-book-modal__submit-btn">
+            Submit
+          </button>
         </form>
       </div>
       <div class="add-book-modal__close-button">
@@ -72,7 +61,10 @@
     <div class="modal-overlay hidden"></div>
 
     <div class="footer">
-      <div class="footer__text">2022 by sk8higher on <a href="https://github.com/sk8higher/library-project">GitHub</a></div>
+      <div class="footer__text">
+        2022 by sk8higher on
+        <a href="https://github.com/sk8higher/library-project">GitHub</a>
+      </div>
     </div>
   </body>
 </html>
