@@ -96,11 +96,17 @@ function createBookCards(Book) {
   btnRemoveFromLibrary = document.querySelectorAll('.books-grid__book-remove');
 }
 
+/**
+ * @funciton Removes book card from the grid and from library array
+ * @param {number} bookNumber
+ */
 function removeBookCard(bookNumber) {
   let childElement = document.querySelector(
     `[data-book-number="${bookNumber}"]`
   );
   childElement.remove();
+
+  myLibrary.pop();
 }
 
 const isBlank = (value) => (value !== '' ? false : true);
@@ -175,6 +181,20 @@ function clearFields() {
   pagesInput.value = '';
 }
 
+function toggleReadStatus(element) {
+  if (element.classList.contains('is-not-read')) {
+    element.classList.remove('is-not-read');
+    element.classList.add('books-grid__book-is-read');
+    element.innerHTML = 'Remove from read';
+    console.log('done');
+  } else if (element.classList.contains('books-grid__book-is-read')) {
+    element.classList.add('is-not-read');
+    element.classList.remove('books-grid__book-is-read');
+    element.innerHTML = 'Add to read';
+    console.log('done', element);
+  }
+}
+
 btnAddBook.addEventListener('click', showModal);
 modalOverlay.addEventListener('click', closeModal);
 btnModalClose.addEventListener('click', closeModal);
@@ -206,5 +226,15 @@ document.addEventListener('click', function (e) {
     removeBookCard(
       e.target.parentNode.parentNode.getAttribute('data-book-number')
     );
+  }
+});
+
+document.addEventListener('click', function (e) {
+  if (
+    e.target.classList.contains('books-grid__book-is-read') ||
+    e.target.classList.contains('is-not-read')
+  ) {
+    toggleReadStatus(e.target);
+    console.log(e.target);
   }
 });
