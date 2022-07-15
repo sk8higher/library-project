@@ -69,7 +69,7 @@ body {
 }
 
 .main-content {
-  height: 100vh;
+  height: auto;
 }
 
 .main-content__container__add-book-button {
