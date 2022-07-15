@@ -146,6 +146,11 @@ body {
   color: white; 
 }
 
+.books-grid__book-is-read:hover, 
+.is-not-read:hover {
+  -webkit-filter: brightness(70%);
+}
+
 .books-grid__book-remove {
   background-color: var(--primary-grey-light);
 }
