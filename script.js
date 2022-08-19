@@ -29,11 +29,20 @@ let myLibrary = [];
  * @param {number} pages
  * @param {boolean} isRead
  */
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+// function Book(title, author, pages, isRead) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.isRead = isRead;
+// }
+
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages =pages;
+    this.isRead = isRead;
+  }
 }
 
 function addBookToLibrary(Book) {
@@ -109,7 +118,7 @@ function removeBookCard(bookNumber) {
   myLibrary.pop();
 }
 
-const isBlank = (value) => (value !== '' ? false : true);
+const isBlank = (value) => (value === '');
 
 function showModal() {
   modalWindow.classList.toggle('hidden');
