@@ -20,7 +20,7 @@
   --primary-green-color: #29BB89;
   --primary-yellow-color: #FFD56B;
   --modal-border-color: #dee2e6;
-  --placeholder-color: background: #ACACAC;
+  --placeholder-color: #ACACAC;
   --primary-grey-dark: #4f4f4f;
   --primary-white-color: #f5f5f5;
   --primary-grey-light: #e5e5e5;
@@ -29,7 +29,6 @@
     linear-gradient(0deg, #e5e5e5, #e5e5e5);
   --header-shadow: 0px 8px 10px 0px rgba(34, 60, 80, 0.2);
   --card-shadow: 0px 5px 4px 0px #2C2B2A1A;
-  
 }
 
 .success {
@@ -173,7 +172,7 @@ body {
   transform: translate(-50%, -50%);
   /* width: 25%; */
   background-color: white;
-  box-shadow: 0px 20px 20px 0px #00000014;
+  box-shadow: 0 20px 20px 0 #00000014;
   border: 2px solid var(--modal-border-color);
   border-radius: 8px;
   padding: 20px 50px;
